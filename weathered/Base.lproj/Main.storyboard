@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
@@ -684,37 +684,37 @@
             <objects>
                 <viewController storyboardIdentifier="WeatherVC" id="XfG-lQ-9wD" customClass="WeatherVC" customModule="weathered" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="455" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ur7-fh-kgy">
-                                <rect key="frame" x="20" y="199" width="360" height="181"/>
+                            <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ur7-fh-kgy">
+                                <rect key="frame" x="20" y="199" width="415" height="181"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Cm-6V-08Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="181"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="142" height="181"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdb-si-on6">
-                                                <rect key="frame" x="8" y="148" width="122" height="33"/>
+                                                <rect key="frame" x="10" y="148" width="122" height="33"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Today's Date" id="zIE-Ze-dau">
                                                     <font key="font" size="20" name="AvenirNext-Regular"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.969246604590836" green="0.969246604590836" blue="0.969246604590836" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYZ-hY-Qqi">
-                                                <rect key="frame" x="20" y="41" width="98" height="99"/>
+                                                <rect key="frame" x="22" y="41" width="98" height="99"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="75°" id="AOm-LT-E5Q">
                                                     <font key="font" size="60" name="AvenirNext-Regular"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoC-rn-mG1">
-                                                <rect key="frame" x="-2" y="0.0" width="142" height="33"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Vancouver, WA" id="P9D-Ag-3bf">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="33"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Vancouver, WA" drawsBackground="YES" id="P9D-Ag-3bf">
                                                     <font key="font" size="20" name="AvenirNext-Regular"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                 </textFieldCell>
                                             </textField>
                                         </subviews>
@@ -730,18 +730,18 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oFh-4f-W8o">
-                                        <rect key="frame" x="158" y="17" width="202" height="148"/>
+                                        <rect key="frame" x="162" y="16.5" width="253" height="148"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b85-2C-jO9">
-                                                <rect key="frame" x="48" y="41" width="107" height="107"/>
+                                                <rect key="frame" x="73" y="41" width="107" height="107"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Clear" id="MIK-gX-SXd"/>
                                             </imageView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7U-en-Sur">
-                                                <rect key="frame" x="30" y="0.0" width="142" height="33"/>
+                                                <rect key="frame" x="55.5" y="0.0" width="142" height="33"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Vancouver, WA" id="vEi-jA-2SX">
                                                     <font key="font" size="20" name="AvenirNext-Regular"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.96924660460000001" green="0.96924660460000001" blue="0.96924660460000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </textFieldCell>
                                             </textField>
                                         </subviews>
@@ -764,13 +764,54 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3w3-H1-Far">
+                                <rect key="frame" x="20" y="29" width="415" height="150"/>
+                                <clipView key="contentView" drawsBackground="NO" id="FJr-rl-TBn">
+                                    <rect key="frame" x="0.0" y="0.0" width="415" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="hr2-Lk-Kaz">
+                                            <rect key="frame" x="0.0" y="0.0" width="415" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="VwJ-Ti-1ev">
+                                                <size key="itemSize" width="125" height="125"/>
+                                                <edgeInsets key="sectionInset" left="10" right="0.0" top="10" bottom="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" red="0.96924660460000001" green="0.96924660460000001" blue="0.96924660460000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="f01-F4-XXZ"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="6eT-iB-riR">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="L3g-R5-Rqa">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="3w3-H1-Far" firstAttribute="top" secondItem="ur7-fh-kgy" secondAttribute="bottom" constant="20" id="76f-NF-Ub1"/>
+                            <constraint firstItem="3w3-H1-Far" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Qbf-q1-PEp"/>
                             <constraint firstItem="ur7-fh-kgy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="XbS-WE-jmV"/>
                             <constraint firstAttribute="trailing" secondItem="ur7-fh-kgy" secondAttribute="trailing" constant="20" id="dHp-uf-aWz"/>
+                            <constraint firstAttribute="trailing" secondItem="3w3-H1-Far" secondAttribute="trailing" constant="20" id="geN-Xq-Qi2"/>
                             <constraint firstItem="ur7-fh-kgy" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="qJO-Ur-bpK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="hr2-Lk-Kaz" id="M5M-WH-Cpr"/>
+                        <outlet property="dateLbl" destination="Zdb-si-on6" id="ZiB-T1-UwU"/>
+                        <outlet property="locationLbl" destination="SoC-rn-mG1" id="P3D-DV-ImV"/>
+                        <outlet property="tempLbl" destination="GYZ-hY-Qqi" id="M5l-r2-0DH"/>
+                        <outlet property="weatherConditionLbl" destination="J7U-en-Sur" id="0i6-3T-vLl"/>
+                        <outlet property="weatherImage" destination="b85-2C-jO9" id="kMw-Te-WNY"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

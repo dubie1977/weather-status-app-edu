@@ -33,6 +33,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C7100261F27E6030044F8BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8C7100271F27E60E0044F8BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8C71002A1F27E6420044F8BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		C15E44CA1F2246140053C7A5 = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +73,9 @@
 		C15E44D51F2246140053C7A5 /* weathered */ = {
 			isa = PBXGroup;
 			children = (
+				8C71002A1F27E6420044F8BE /* Controller */,
+				8C7100271F27E60E0044F8BE /* View */,
+				8C7100261F27E6030044F8BE /* Model */,
 				C15E44D61F2246140053C7A5 /* AppDelegate.swift */,
 				C15E44D81F2246140053C7A5 /* WeatherVC.swift */,
 				C15E44DA1F2246140053C7A5 /* Assets.xcassets */,
@@ -291,6 +315,7 @@
 				C15E44E41F2246140053C7A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
