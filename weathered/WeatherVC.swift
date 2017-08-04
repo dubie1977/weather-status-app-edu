@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Alamofire
 
 class WeatherVC: NSViewController {
 
@@ -24,6 +25,8 @@ class WeatherVC: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     override func viewDidAppear() {
@@ -37,5 +40,26 @@ class WeatherVC: NSViewController {
     }
 
 
+}
+
+extension WeatherVC: NSCollectionViewDelegate, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout{
+
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem{
+        let forcastItem = collectionView.makeItem(withIdentifier: "WeatherCell", for: indexPath)
+        
+        return forcastItem
+    }
+    
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+        return NSSize(width: 125, height: 125)
+    }
 }
 
