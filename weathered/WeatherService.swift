@@ -12,12 +12,27 @@ import Alamofire
 class WeatherService {
 
     static let instance = WeatherService()
+    fileprivate var _currentWeather = CurrentWeather()
     
-    func downloadWeatherDetails(){
+    var currentWeather: CurrentWeather{
+        get{
+            return _currentWeather
+        } set{
+            _currentWeather = newValue
+        }
+    }
+    
+    func downloadWeatherDetails(compleated: @escaping DownloadComplete){
         let url = URL( string: API_URL_CURRENT_WEATHER)
-        Alamofire.request(url!).responseJSON{ (response) in
+        Alamofire.request(url!).responseData{ (response) in
         
-            print(response.result.value ?? "")
+            self.currentWeather = CurrentWeather.loadCurrentWeatherFromData(response.data!)
+            //print(response.result.value ?? "")
+            print("City Name: "+self.currentWeather.cityName)
+            print("Weather Type: "+self.currentWeather.weatherType)
+            print("Current Temp: \(self.currentWeather.currentTemp)")
+            print("Current Date: "+self.currentWeather.date)
+            compleated()
         }
     }
     
