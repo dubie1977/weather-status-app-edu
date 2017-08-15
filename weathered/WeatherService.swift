@@ -13,12 +13,21 @@ class WeatherService {
 
     static let instance = WeatherService()
     fileprivate var _currentWeather = CurrentWeather()
+    fileprivate var _forcast = [Forcast]()
     
     var currentWeather: CurrentWeather{
         get{
             return _currentWeather
         } set{
             _currentWeather = newValue
+        }
+    }
+    
+    var forcast: [Forcast]{
+        get{
+            return _forcast
+        } set {
+            _forcast = newValue
         }
     }
     
@@ -33,6 +42,18 @@ class WeatherService {
             print("Current Temp: \(self.currentWeather.currentTemp)")
             print("Current Date: "+self.currentWeather.date)
             compleated()
+        }
+    }
+    
+    func downloadForecast (compleated: @escaping DownloadComplete){
+        let url = URL(string: API_URL_FORCAST)
+        Alamofire.request(url!).responseData { (response) in
+            self.forcast = Forcast.loadForecastFormData(response.data!)
+            if self.forcast.count > 0{
+                self.forcast.remove(at: 0)
+            }
+            compleated()
+            
         }
     }
     
