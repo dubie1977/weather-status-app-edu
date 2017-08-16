@@ -59,6 +59,11 @@ extension WeatherVC: NSCollectionViewDelegate, NSCollectionViewDataSource, NSCol
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem{
         let forcastItem = collectionView.makeItem(withIdentifier: "WeatherCell", for: indexPath)
         
+        guard let forcastCell = forcastItem as? WeatherCell else {
+            return forcastItem
+        }
+        forcastCell.configureCell(weatherCell: WeatherService.instance.forcast[indexPath.item])
+        
         return forcastItem
     }
     
@@ -67,7 +72,7 @@ extension WeatherVC: NSCollectionViewDelegate, NSCollectionViewDataSource, NSCol
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return WeatherService.instance.forcast.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {

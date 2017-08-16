@@ -63,7 +63,7 @@ class Forcast{
                 let date = day["dt"].doubleValue
                 let unixConvertedDate = Date(timeIntervalSince1970: date)
                 dayForecast.date = unixConvertedDate.dayOfTheWeek()
-                
+
                 forcast.append(dayForecast)
             }
         }
