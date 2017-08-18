@@ -18,7 +18,8 @@ class WeatherVC: NSViewController {
     @IBOutlet weak var weatherImage: NSImageView!
     @IBOutlet weak var weatherConditionLbl: NSTextField!
     @IBOutlet weak var collectionView: NSCollectionView!
-    
+    @IBOutlet weak var poweredByBtn: NSButton!
+    @IBOutlet weak var quitBtn: NSButton!
     
     
     override func viewDidLoad() {
@@ -32,6 +33,17 @@ class WeatherVC: NSViewController {
     override func viewDidAppear() {
         self.view.layer?.backgroundColor = CGColor(red: 0.29, green: 0.72, blue: 0.98, alpha: 1.0)
         updateUI()
+        quitBtn.styleButtonText(button: quitBtn, buttonName: "Quit", fontColor: .darkGray, alignment: .center, font: "Avenir Next", size: 11)
+        poweredByBtn.styleButtonText(button: poweredByBtn, buttonName: "Powered by OpenWeatherMap", fontColor: .darkGray, alignment: .center, font: "Avenir Next", size: 11)
+    }
+    
+    @IBAction func poweredByBtnClicked(_ sender: Any) {
+        let url = URL(string: API_HOMEPAGE)
+        NSWorkspace.shared().open(url!)
+    }
+    
+    @IBAction func quitBtnClicked(_ sender: Any) {
+        NSApplication.shared().terminate(nil)
     }
 
     override var representedObject: Any? {
