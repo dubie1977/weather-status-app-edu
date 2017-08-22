@@ -31,10 +31,22 @@ class WeatherVC: NSViewController {
     }
     
     override func viewDidAppear() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(WeatherVC.dataDownloadedNotif(_:)), name: NOTIF_DOWNLOAD_COMPLETE, object: nil)
+        
         self.view.layer?.backgroundColor = CGColor(red: 0.29, green: 0.72, blue: 0.98, alpha: 1.0)
         updateUI()
         quitBtn.styleButtonText(button: quitBtn, buttonName: "Quit", fontColor: .darkGray, alignment: .center, font: "Avenir Next", size: 11)
         poweredByBtn.styleButtonText(button: poweredByBtn, buttonName: "Powered by OpenWeatherMap", fontColor: .darkGray, alignment: .center, font: "Avenir Next", size: 11)
+    }
+    
+    override func viewDidDisappear() {
+        NotificationCenter.default.removeObserver(self, name: NOTIF_DOWNLOAD_COMPLETE, object: nil)
+    }
+    
+    func dataDownloadedNotif(_ notif: Notification){
+        updateUI()
+        print("notification to update UI")
     }
     
     @IBAction func poweredByBtnClicked(_ sender: Any) {
@@ -60,6 +72,8 @@ class WeatherVC: NSViewController {
         locationLbl.stringValue = weather.cityName
         weatherConditionLbl.stringValue = weather.weatherType
         weatherImage.image = NSImage(named: weather.weatherType)
+        collectionView.reloadData()
+        print("UI Updated")
         
     }
 

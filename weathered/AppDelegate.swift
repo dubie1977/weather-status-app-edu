@@ -20,12 +20,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.button?.title = "--°"
         statusItem.action = #selector(AppDelegate.displayPopUp(_:))
         
-        WeatherService.instance.downloadWeatherDetails { 
+        let updateWeatherData = Timer.scheduledTimer(timeInterval: (60 * 15), target: self, selector: #selector(AppDelegate.downloadWeatherData), userInfo: nil, repeats: true)
+        updateWeatherData.tolerance = 60
+        downloadWeatherData()
+        
+    }
+    
+    func downloadWeatherData(){
+        WeatherService.instance.downloadWeatherDetails {
             self.statusItem.button?.title = "\(WeatherService.instance.currentWeather.currentTemp)°"
-        }
-        WeatherService.instance.downloadForecast(compleated:  {
             
-        })
+            WeatherService.instance.downloadForecast(compleated:  {
+                NotificationCenter.default.post(name: NOTIF_DOWNLOAD_COMPLETE, object: nil)
+                print("data downloaded")
+            }) 
+        }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

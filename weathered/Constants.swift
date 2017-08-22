@@ -16,3 +16,5 @@ let API_URL_CURRENT_WEATHER = "http://api.openweathermap.org/data/2.5/weather?la
 let API_URL_FORCAST = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=45.78&lon=-122.54&cnt=8\(API_UNITS)\(API_KEY)"
 
 let API_HOMEPAGE = "http:openweathermap.org"
+
+let NOTIF_DOWNLOAD_COMPLETE = NSNotification.Name("dataDownloaded")
