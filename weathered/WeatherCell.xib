@@ -15,6 +15,10 @@
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsW-jS-gfD">
                     <rect key="frame" x="6" y="4" width="28" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="EcC-8C-kZP"/>
+                        <constraint firstAttribute="height" constant="23" id="dtL-4G-tB8"/>
+                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="100" id="gy6-ZD-LWK">
                         <font key="font" size="13" name="AvenirNext-DemiBold"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,6 +43,10 @@
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9L3-9k-ewk">
                     <rect key="frame" x="91" y="4" width="28" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="23" id="b8R-X2-wHo"/>
+                        <constraint firstAttribute="width" constant="24" id="seg-1T-w9Q"/>
+                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="101" id="SuN-sk-Y8a">
                         <font key="font" size="13" name="AvenirNext-DemiBold"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,10 +58,12 @@
                 <constraint firstAttribute="bottom" secondItem="UsW-jS-gfD" secondAttribute="bottom" constant="4" id="2yL-n4-fhX"/>
                 <constraint firstAttribute="trailing" secondItem="9L3-9k-ewk" secondAttribute="trailing" constant="8" id="9tO-PB-rHR"/>
                 <constraint firstItem="hrA-RQ-fRf" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Meh-dP-MM5"/>
+                <constraint firstAttribute="trailing" secondItem="lZ2-X8-ziF" secondAttribute="trailing" constant="35" id="MwN-gT-rh3"/>
+                <constraint firstItem="lZ2-X8-ziF" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="a3E-lK-UKp"/>
                 <constraint firstItem="hrA-RQ-fRf" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="exn-al-LPY"/>
+                <constraint firstItem="lZ2-X8-ziF" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="35" id="fBK-40-qK9"/>
                 <constraint firstAttribute="bottom" secondItem="9L3-9k-ewk" secondAttribute="bottom" constant="4" id="fFx-WG-d7I"/>
                 <constraint firstItem="lZ2-X8-ziF" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="g3a-hA-i7A"/>
-                <constraint firstItem="lZ2-X8-ziF" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="vVu-Gq-KVs"/>
                 <constraint firstItem="UsW-jS-gfD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="8" id="yKU-Gt-GG0"/>
             </constraints>
         </customView>

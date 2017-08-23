@@ -32,22 +32,23 @@ class WeatherService {
     }
     
     func downloadWeatherDetails(compleated: @escaping DownloadComplete){
-        let url = URL( string: API_URL_CURRENT_WEATHER)
+        var locationURL: String
+        locationURL = "lat=\(Location.instance.latitude)&lon=\(Location.instance.longitude)"
+        let url = URL( string: API_URL_CURRENT_WEATHER+locationURL+API_URL_CURRENT_WEATHER_END)
+        //print(url?.absoluteString ?? 0)
         Alamofire.request(url!).responseData{ (response) in
         
             self.currentWeather = CurrentWeather.loadCurrentWeatherFromData(response.data!)
-            //print("City Name: "+self.currentWeather.cityName)
-            //print("Weather Type: "+self.currentWeather.weatherType)
-            //print("Current Temp: \(self.currentWeather.currentTemp)")
-            //print("Current Date: "+self.currentWeather.date)
             compleated()
         }
     }
     
     func downloadForecast (compleated: @escaping DownloadComplete){
-        let url = URL(string: API_URL_FORCAST)
+        var locationURL: String
+        locationURL = "lat=\(Location.instance.latitude)&lon=\(Location.instance.longitude)"
+        let url = URL(string: API_URL_FORCAST+locationURL+API_URL_FORCAST_END)
+        //print(url?.absoluteString ?? 0)
         Alamofire.request(url!).responseData { (response) in
-            //print("Forcast download isSucessful: \(response.result.isSuccess)")
             self.forcast = Forcast.loadForecastFormData(response.data!)
             if self.forcast.count > 0{
                 self.forcast.remove(at: 0)
