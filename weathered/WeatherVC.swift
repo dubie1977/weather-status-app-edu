@@ -31,7 +31,7 @@ class WeatherVC: NSViewController {
     }
     
     override func viewDidAppear() {
-        
+        updateUI()
         NotificationCenter.default.addObserver(self, selector: #selector(WeatherVC.dataDownloadedNotif(_:)), name: NOTIF_DOWNLOAD_COMPLETE, object: nil)
         
         self.view.layer?.backgroundColor = CGColor(red: 0.29, green: 0.72, blue: 0.98, alpha: 1.0)

@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
+    var locationAuth = false
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
@@ -30,9 +31,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
         statusItem.button?.title = "--°"
         statusItem.action = #selector(AppDelegate.displayPopUp(_:))
         
-        let updateWeatherData = Timer.scheduledTimer(timeInterval: 5/*(60 * 15)*/, target: self, selector: #selector(AppDelegate.downloadWeatherData), userInfo: nil, repeats: true)
+        let updateWeatherData = Timer.scheduledTimer(timeInterval: 10/*(60 * 15)*/, target: self, selector: #selector(AppDelegate.downloadWeatherData), userInfo: nil, repeats: true)
         updateWeatherData.tolerance = 60
         
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch(status){
+        case CLAuthorizationStatus.denied:
+            print("auth denied")
+            self.locationAuth = false
+            //self.locationManager.stopUpdatingLocation()
+        case CLAuthorizationStatus.authorizedAlways:
+            print("auth approved")
+            self.locationAuth = true
+        case CLAuthorizationStatus.notDetermined:
+            print("auth unknown")
+            self.locationAuth = false
+        default:
+            print("other")
+        }
         
     }
     
@@ -41,13 +60,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
         Location.instance.latitude = currentLocation.coordinate.latitude
         Location.instance.longitude = currentLocation.coordinate.longitude
         
-        //print("Long: \(Location.instance.longitude), Lat: \(Location.instance.latitude)")
-        //print("Curren URL: "+API_URL_CURRENT_WEATHER)
         downloadWeatherData()
     }
     
     func downloadWeatherData(){
-        
+        if(self.locationAuth){
         WeatherService.instance.downloadWeatherDetails {
             self.statusItem.button?.title = "\(WeatherService.instance.currentWeather.currentTemp)°"
             
@@ -56,6 +73,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
                 //print("data downloaded")
                 //self.locationManager.stopUpdatingLocation()
             }) 
+        }
+        } else {
+            print("use zip")
         }
         
     }

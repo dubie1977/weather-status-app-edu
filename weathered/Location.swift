@@ -12,15 +12,17 @@ class Location {
     
     static var instance = Location()
     
-    fileprivate var _latitude: Double!
-    fileprivate var _longitude: Double!
+    fileprivate var _latitude: Double?
+    fileprivate var _longitude: Double?
+    fileprivate var _zip: Int?
+    fileprivate var _UseZip = false
     
     var latitude: Double{
         get{
             if (_latitude == nil){
                 return 0.00
             } else{
-              return _latitude
+              return _latitude!
             }
             
         } set {
@@ -33,7 +35,7 @@ class Location {
             if (_longitude == nil){
                 return 0.00
             } else{
-                return _longitude
+                return _longitude!
             }
         } set {
             _longitude = newValue

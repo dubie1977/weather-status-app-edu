@@ -32,12 +32,29 @@ class WeatherService {
     }
     
     func downloadWeatherDetails(compleated: @escaping DownloadComplete){
-        var locationURL: String
+        /*var locationURL: String
         locationURL = "lat=\(Location.instance.latitude)&lon=\(Location.instance.longitude)"
         let url = URL( string: API_URL_CURRENT_WEATHER+locationURL+API_URL_CURRENT_WEATHER_END)
         //print(url?.absoluteString ?? 0)
         Alamofire.request(url!).responseData{ (response) in
         
+            self.currentWeather = CurrentWeather.loadCurrentWeatherFromData(response.data!)
+            compleated()
+        }*/
+        downloadWeatherDetailsCoordinates {
+            print("download current by coordinates done")
+            compleated()
+            
+        }
+    }
+    
+    func downloadWeatherDetailsCoordinates(compleated: @escaping DownloadComplete){
+        var locationURL: String
+        locationURL = "lat=\(Location.instance.latitude)&lon=\(Location.instance.longitude)"
+        let url = URL( string: API_URL_CURRENT_WEATHER+locationURL+API_URL_CURRENT_WEATHER_END)
+        //print(url?.absoluteString ?? 0)
+        Alamofire.request(url!).responseData{ (response) in
+            
             self.currentWeather = CurrentWeather.loadCurrentWeatherFromData(response.data!)
             compleated()
         }
