@@ -59,7 +59,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
         currentLocation = locations[locations.count - 1]
         Location.instance.latitude = currentLocation.coordinate.latitude
         Location.instance.longitude = currentLocation.coordinate.longitude
-        
+        Location.instance.locationProvided = true
+        Location.instance.useZip = false
         downloadWeatherData()
     }
     

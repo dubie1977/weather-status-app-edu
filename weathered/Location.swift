@@ -16,13 +16,14 @@ class Location {
     fileprivate var _longitude: Double?
     fileprivate var _zip: Int?
     fileprivate var _UseZip = false
+    fileprivate var _locationProvided = false
     
     var latitude: Double{
         get{
-            if (_latitude == nil){
-                return 0.00
+            if let lat = _latitude{
+                return lat
             } else{
-              return _latitude!
+              return 0.00
             }
             
         } set {
@@ -32,13 +33,41 @@ class Location {
     
     var longitude: Double{
         get{
-            if (_longitude == nil){
-                return 0.00
+            if let long = _longitude{
+                return long
             } else{
-                return _longitude!
+                return 0.00
             }
         } set {
             _longitude = newValue
+        }
+    }
+    
+    var zip: Int{
+        get{
+            if let zip = _zip {
+                return zip
+            } else {
+                return 0
+            }
+        } set {
+            _zip = newValue
+        }
+    }
+    
+    var useZip: Bool{
+        get{
+            return _UseZip
+        } set {
+            _UseZip = newValue
+        }
+    }
+    
+    var locationProvided: Bool {
+        get{
+            return _locationProvided
+        } set {
+            _locationProvided = newValue
         }
     }
 

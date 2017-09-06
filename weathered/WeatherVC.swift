@@ -65,6 +65,11 @@ class WeatherVC: NSViewController {
     }
     
     func updateUI(){
+        
+        let location = Location.instance
+        if !location.locationProvided {
+            return
+        }
     
         let weather = WeatherService.instance.currentWeather
         dateLbl.stringValue = weather.date
