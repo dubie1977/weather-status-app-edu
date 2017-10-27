@@ -15,7 +15,7 @@ class Location {
     fileprivate var _latitude: Double?
     fileprivate var _longitude: Double?
     fileprivate var _zip: Int?
-    fileprivate var _UseZip = false
+    fileprivate var _useZip = false
     fileprivate var _locationProvided = false
     
     var latitude: Double{
@@ -57,14 +57,28 @@ class Location {
     
     var useZip: Bool{
         get{
-            return _UseZip
+            return _useZip
         } set {
-            _UseZip = newValue
+            _useZip = newValue
         }
     }
     
     var locationProvided: Bool {
         get{
+            if _useZip {
+                if let _ = _zip {
+                    _locationProvided = true
+                } else {
+                    _locationProvided = false
+                }
+            } else {
+                if let _ = _longitude , let _ = _latitude {
+                    _locationProvided = true
+                } else {
+                    _locationProvided = false
+                }
+            }
+            
             return _locationProvided
         } set {
             _locationProvided = newValue

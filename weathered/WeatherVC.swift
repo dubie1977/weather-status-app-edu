@@ -44,18 +44,18 @@ class WeatherVC: NSViewController {
         NotificationCenter.default.removeObserver(self, name: NOTIF_DOWNLOAD_COMPLETE, object: nil)
     }
     
-    func dataDownloadedNotif(_ notif: Notification){
+    @objc func dataDownloadedNotif(_ notif: Notification){
         updateUI()
         //print("notification to update UI")
     }
     
     @IBAction func poweredByBtnClicked(_ sender: Any) {
         let url = URL(string: API_HOMEPAGE)
-        NSWorkspace.shared().open(url!)
+        NSWorkspace.shared.open(url!)
     }
     
     @IBAction func quitBtnClicked(_ sender: Any) {
-        NSApplication.shared().terminate(nil)
+        NSApplication.shared.terminate(nil)
     }
 
     override var representedObject: Any? {
@@ -76,7 +76,7 @@ class WeatherVC: NSViewController {
         tempLbl.stringValue = "\(weather.currentTemp)°"
         locationLbl.stringValue = weather.cityName
         weatherConditionLbl.stringValue = weather.weatherType
-        weatherImage.image = NSImage(named: weather.weatherType)
+        weatherImage.image = NSImage(named: NSImage.Name(rawValue: weather.weatherType))
         collectionView.reloadData()
         print("UI Updated")
         
@@ -88,7 +88,7 @@ class WeatherVC: NSViewController {
 extension WeatherVC: NSCollectionViewDelegate, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem{
-        let forcastItem = collectionView.makeItem(withIdentifier: "WeatherCell", for: indexPath)
+        let forcastItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "WeatherCell"), for: indexPath)
         
         guard let forcastCell = forcastItem as? WeatherCell else {
             return forcastItem

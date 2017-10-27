@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
 
 
     //varibles
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
@@ -64,8 +64,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
         downloadWeatherData()
     }
     
-    func downloadWeatherData(){
-        if(self.locationAuth){
+    @objc func downloadWeatherData(){
+        if(Location.instance.locationProvided){
         WeatherService.instance.downloadWeatherDetails {
             self.statusItem.button?.title = "\(WeatherService.instance.currentWeather.currentTemp)°"
             
@@ -76,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
             }) 
         }
         } else {
-            print("use zip")
+            print("No location provided")
         }
         
     }
@@ -85,9 +85,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, CLLocationManagerDelegate {
         // Insert code here to tear down your application
     }
 
-    func displayPopUp(_ sender: AnyObject?){
-        let storyBoard = NSStoryboard(name: "Main", bundle: nil)
-        guard let vc = storyBoard.instantiateController(withIdentifier: "WeatherVC") as? NSViewController else { return }
+    @objc func displayPopUp(_ sender: AnyObject?){
+        let storyBoard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        guard let vc = storyBoard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "WeatherVC")) as? NSViewController else { return }
         let popOverView = NSPopover()
         popOverView.contentViewController = vc
         popOverView.behavior = .transient
